@@ -1,0 +1,156 @@
+/* ── Reset & Base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #080810;
+  --surface:  #0e0e1c;
+  --border:   rgba(98, 114, 164, 0.18);
+  --cyan:     #8be9fd;
+  --green:    #50fa7b;
+  --purple:   #bd93f9;
+  --pink:     #ff79c6;
+  --yellow:   #f1fa8c;
+  --red:      #ff5555;
+  --text-1:   #cdd6f4;
+  --text-2:   #8892b0;
+  --text-3:   #6272a4;
+  font-size: 14px;
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: 'Syne', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── App Shell ──────────────────────────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% -10%, rgba(139,233,253,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 30% at 90% 50%, rgba(189,147,249,0.04) 0%, transparent 60%),
+    var(--bg);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.app-header {
+  border-bottom: 1px solid var(--border);
+  background: rgba(14, 14, 28, 0.8);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-mark {
+  flex-shrink: 0;
+  animation: logo-spin 20s linear infinite;
+}
+@keyframes logo-spin {
+  from { filter: hue-rotate(0deg); }
+  to   { filter: hue-rotate(360deg); }
+}
+
+.app-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-1);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.app-subtitle {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  margin-top: 3px;
+  letter-spacing: 0.05em;
+}
+
+.header-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: rgba(98,114,164,0.12);
+  border: 1px solid rgba(98,114,164,0.2);
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+}
+.tag-accent {
+  background: rgba(139,233,253,0.1);
+  border-color: rgba(139,233,253,0.25);
+  color: var(--cyan);
+}
+
+/* ── Main Layout ─────────────────────────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+.app-footer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.credits {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  text-align: center;
+  opacity: 0.6;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .app-main {
+    flex-direction: column;
+    padding: 16px;
+  }
+  .controls-panel {
+    width: 100%;
+    max-height: none;
+  }
+}
